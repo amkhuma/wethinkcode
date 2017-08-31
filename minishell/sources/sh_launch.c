@@ -6,13 +6,13 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 14:57:42 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/23 06:49:55 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/08/30 14:32:43 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		sh_launch(char **args, char **envp)
+int		sh_launch(char **args, char **envp)
 {
 	pid_t		pid;
 	int			status;
@@ -36,4 +36,5 @@ void		sh_launch(char **args, char **envp)
 		while (!WIFEXITED(status) && !WIFSIGNALED(status))
 			waitpid(pid, &status, WUNTRACED);
 	}
+	return (1);
 }

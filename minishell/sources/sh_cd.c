@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 11:37:49 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/24 14:27:21 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/08/30 14:24:59 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		sh_cd(char **args)
 {
-	t_data db;
+	//t_data db;
 
 	if (args[1] == NULL || ft_strcmp("~", args[1]) == 0)
 	{
@@ -23,7 +23,7 @@ int		sh_cd(char **args)
 	}
 	else
 	{
-		if (chdir(db.o_pwd) != 0)
+		if (chdir(args[1]) != 0)
 			ft_putstr("an error occured\n");
 	}
 	return (1);

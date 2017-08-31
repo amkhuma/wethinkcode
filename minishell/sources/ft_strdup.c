@@ -22,3 +22,12 @@ char	*ft_strdup(const char *s1)
 	ft_strcpy(s2, s1);
 	return (s2);
 }
+
+void	ft_strdel(char **as)
+{
+	if (*as)
+	{
+		free(*as);
+		*as = NULL;
+	}
+}

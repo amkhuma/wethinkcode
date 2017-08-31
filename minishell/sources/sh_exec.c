@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 14:58:48 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/21 18:24:54 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/08/30 14:27:30 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		sh_execute(char **args, t_data *db)
 {
-	if (ft_strcmp("cd", args[0]) == 0)
+	if (args[0] == NULL)
+		return (1);
+	else if (ft_strcmp("cd", args[0]) == 0)
 		return (sh_cd(args));
 	else if (ft_strcmp("exit", args[0]) == 0)
 		return (sh_exit(args));
@@ -29,6 +31,6 @@ int		sh_execute(char **args, t_data *db)
 	else if (ft_strcmp("unsetenv", args[0]) == 0)
 		ft_unsetenv(db->gg_env, args[1]);
 	else
-		sh_launch(args, db->gg_env);
-	return (-1);
+		ft_putstr("command not found.\n");
+	return(sh_launch(args, db->gg_env));
 }

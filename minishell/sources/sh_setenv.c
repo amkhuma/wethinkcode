@@ -29,16 +29,23 @@ void	sh_setenv(char *arg, char **env)
 	int		i;
 
 	i = 0;
-	while (env[i])
+	if (arg == NULL)
 	{
-		if (ft_strncmp(arg, env[i], sh_findpoint(arg, '=')) == 0)
-		{
-			env[i] = sh_realloc(env[i], arg);
-			return ;
-		}
-		i++;
+		ft_putstr("expected variable to set.\n");
 	}
-	while (env[i] != NULL)
-		i++;
-	env[i] = sh_realloc(env[i], arg);
+	else 
+	{
+		while (env[i])
+		{
+			if (ft_strncmp(arg, env[i], sh_findpoint(arg, '=')) == 0)
+			{
+				env[i] = sh_realloc(env[i], arg);
+				return ;
+			}
+			i++;
+		}
+		while (env[i] != NULL)
+			i++;
+		env[i] = sh_realloc(env[i], arg);
+	}
 }

@@ -6,7 +6,7 @@
 #    By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:16:11 by amkhuma           #+#    #+#              #
-#    Updated: 2017/08/14 15:16:13 by amkhuma          ###   ########.fr        #
+#    Updated: 2017/08/31 08:59:26 by amkhuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ PATH_SRC  = ./sources/
 PATH_HEAD   = ./includes/
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(PATH_HEAD)
+CFLAGS = -g3 -Wall -Wextra -Werror -I$(PATH_HEAD)
 LIBS_LINK = -L includes/
 
 HEAD = $(PATH_HEAD)ft_minishell.h
@@ -50,13 +50,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) -o $(NAME) $(LIBS_LINK)
+	@echo "\033[00;32mMade '$(NAME)'\033[0m"
 
 clean:
 	@/bin/rm -f $(OBJ)
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@echo "\033[00;32mRemoved '$(NAME)''$(OBJ)\n'\033[0m"
 
 re: fclean all
+
+val:
+	@valgrind --leak-check=full ./minishell
 
 .PHONY: clean fclean
