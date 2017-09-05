@@ -28,8 +28,7 @@
 
 typedef struct		s_data
 {
-	char			*o_pwd;
-	char			*n_pwd;
+	char			shell_var;
 	char			**gg_env;
 }					t_data;
 
@@ -43,7 +42,7 @@ int					ft_env_loop(char **env, t_data *db);
 int					sh_launch(char **args, char **envp);
 int					sh_echo(char **argv);
 void				clean_up(char **dir, char *n, char *tmp);
-char				*sh_realloc(char *str, char *str2);
+char				*sh_realloc(char *str);
 void				ft_unsetenv(char **env, char *str);
 int					sh_findpoint(char *str, char c);
 void				sh_setenv(char *arg, char **env);

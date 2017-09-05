@@ -14,8 +14,6 @@
 
 int		sh_cd(char **args)
 {
-	//t_data db;
-
 	if (args[1] == NULL || ft_strcmp("~", args[1]) == 0)
 	{
 		if (chdir(HOME) != 0)

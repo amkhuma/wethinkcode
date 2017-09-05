@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 14:58:48 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/30 14:27:30 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/09/05 12:50:20 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int		sh_execute(char **args, t_data *db)
 	else if (ft_strcmp("clear", args[0]) == 0)
 		return (sh_clear());
 	else if (ft_strcmp("env", args[0]) == 0)
-		ft_env(db->gg_env);
+		return (ft_env(db->gg_env));
 	else if (ft_strcmp("echo", args[0]) == 0)
 		return (sh_echo(args));
-	else if (ft_strcmp("setenv", args[0]) == 0)
+	else if (ft_strcmp("setenv", args[0]) == 0
+			|| ft_strcmp("export", args[0]) == 0)
 		sh_setenv(args[1], db->gg_env);
-	else if (ft_strcmp("unsetenv", args[0]) == 0)
+	else if (ft_strcmp("unsetenv", args[0]) == 0
+			|| ft_strcmp("unset", args[0]) == 0)
 		ft_unsetenv(db->gg_env, args[1]);
-	else
-		ft_putstr("command not found.\n");
-	return(sh_launch(args, db->gg_env));
+	return (sh_launch(args, db->gg_env));
 }

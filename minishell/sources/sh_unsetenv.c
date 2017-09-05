@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 11:37:41 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/21 18:29:46 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/09/05 12:51:56 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void		ft_unsetenv(char **env, char *str)
 		{
 			while (i < nbr - 1)
 			{
-				env[i] = sh_realloc(env[i], env[i + 1]);
+				env[i] = sh_realloc(env[i + 1]);
 				i++;
 			}
 			if (env[i] != NULL)
-				env[i] = sh_realloc(env[i], NULL);
+				env[i] = sh_realloc(NULL);
 		}
 		i++;
 	}

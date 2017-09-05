@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 11:40:03 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/21 18:29:38 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/09/05 12:51:18 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,21 @@ void	sh_setenv(char *arg, char **env)
 	{
 		ft_putstr("expected variable to set.\n");
 	}
-	else 
+	else
 	{
 		while (env[i])
 		{
 			if (ft_strncmp(arg, env[i], sh_findpoint(arg, '=')) == 0)
 			{
-				env[i] = sh_realloc(env[i], arg);
+				env[i] = sh_realloc(arg);
 				return ;
 			}
 			i++;
 		}
 		while (env[i] != NULL)
 			i++;
-		env[i] = sh_realloc(env[i], arg);
+		env[i] = sh_realloc(arg);
 	}
+	i++;
+	env[i] = NULL;
 }

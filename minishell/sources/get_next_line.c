@@ -43,7 +43,9 @@ static int		ft_read_buffer(int const fd, char **line)
 		tmp = ft_strjoin(*line, buff);
 		free(*line);
 		*line = tmp;
+		free(tmp);
 	}
+	free(buff);
 	return (ret);
 }
 

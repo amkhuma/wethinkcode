@@ -49,5 +49,6 @@ int		main(int argc, char **argv, char **env)
 		line = NULL;
 		free_2d_array(arg);
 	}
+	free_2d_array(db.gg_env);
 	return (0);
 }
