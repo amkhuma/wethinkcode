@@ -32,6 +32,36 @@ static	void	print_special_char(char c)
 		write(1, "\"", 1);
 }
 
+int  echo_env(char *line, char **env)
+{
+	char *name;
+	int i = 1;
+	int k = 0;
+	int n = 0;
+
+	if (ft_strchr(line, '$'))
+	{	
+		name = (char*)malloc(sizeof(char) * (ft_strlen(line)));
+		while (line[i])
+			name[k++] = line[i++];
+		name[k] = '\0';
+		while (env[n])
+		{
+			if (ft_strstr(env[n], name) != 0)
+			{				
+				while (env[n][k] != '=')
+					k++;
+				k++;
+				while (env[n][k])
+					write (1, &env[n][k++], 1);
+			}
+			n++;
+		}
+		write(1, "\n", 1);
+	}
+	return (1);
+}
+
 static	void	print_echo(char *str)
 {
 	int	i;
@@ -57,7 +87,7 @@ static	void	print_echo(char *str)
 	}
 }
 
-int				sh_echo(char **argv)
+int				sh_echo(char **argv, t_data *db)
 {
 	int	i;
 	int	n;
@@ -68,6 +98,8 @@ int				sh_echo(char **argv)
 		i++;
 	if (argv[i] && ft_strcmp(argv[i], "-n") == 0)
 		n = i++;
+	if (ft_strchr(argv[i], '$'))
+		return(echo_env(argv[i++], db->gg_env));
 	while (argv[i] && argv[i] != NULL)
 	{
 		print_echo(argv[i]);

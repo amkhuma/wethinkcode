@@ -34,13 +34,12 @@ typedef struct		s_data
 
 int					sh_execute(char **args, t_data *db);
 int					sh_cd(char **args);
-int					sh_exit(char **args);
 int					sh_clear(void);
 void				ft_str(char *str);
 int					ft_env(char **env);
 int					ft_env_loop(char **env, t_data *db);
 int					sh_launch(char **args, char **envp);
-int					sh_echo(char **argv);
+int					sh_echo(char **argv, t_data *db);
 void				clean_up(char **dir, char *n, char *tmp);
 char				*sh_realloc(char *str);
 void				ft_unsetenv(char **env, char *str);
@@ -49,6 +48,7 @@ void				sh_setenv(char *arg, char **env);
 char				*ft_path_finder(char **p, char **n);
 void				sh_cleaner(char **dir, char *n, char *tmp);
 char				*sh_path(char **p, char **n);
+char				*sh_getenv(char **env, const char *key);
 void				free_2d_array(char **array);
 
 char				**ft_strsplit(char const *s, char c);
@@ -57,6 +57,8 @@ int					get_next_line(int const fd, char **line);
 char				*ft_strdup(const char *s1);
 void				ft_putstr(const char *s);
 size_t				ft_strlen(const char *s);
+char				*ft_strstr(const char *s1, const char *s2);
+size_t				ft_strlenchr(const char *s, char c);
 void				ft_putchar(char c);
 void				ft_strdel(char **as);
 char				*ft_strjoin(char const *s1, char const *s2);

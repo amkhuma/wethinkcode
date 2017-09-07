@@ -6,7 +6,7 @@
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 14:57:42 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/09/05 12:53:53 by amkhuma          ###   ########.fr       */
+/*   Updated: 2017/09/07 09:58:12 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		sh_launch(char **args, char **envp)
 	}
 	else
 	{
-		ft_putstr("Command not found\n");
 		waitpid(pid, &status, WUNTRACED);
 		while (!WIFEXITED(status) && !WIFSIGNALED(status))
 			waitpid(pid, &status, WUNTRACED);

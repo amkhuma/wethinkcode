@@ -6,7 +6,7 @@
 #    By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/14 15:16:11 by amkhuma           #+#    #+#              #
-#    Updated: 2017/08/31 08:59:26 by amkhuma          ###   ########.fr        #
+#    Updated: 2017/09/07 09:53:58 by amkhuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRC =	minishell.c			\
 		ft_strncmp.c		\
 		sh_clear.c			\
 		sh_env.c			\
-		sh_exit.c			\
 		sh_setenv.c
 
 OBJ  = $(addprefix $(PATH_SRC), $(SRC:.c=.o))
