@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/19 08:59:38 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/09/05 15:52:56 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:13:57 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:14:02 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*sh_realloc(char *str)
+char	*sh_realloc(char *str2)
 {
 	char	*nstr;
 
-	if (str == NULL)
+	if (str2 == NULL)
 		return (NULL);
-	nstr = (char *)malloc(sizeof(char) * ft_strlen(str));
-	ft_strcpy(nstr, str);
+	nstr = (char *)malloc(sizeof(char) * ft_strlen(str2));
+	ft_strcpy(nstr, str2);
 	return (nstr);
 }

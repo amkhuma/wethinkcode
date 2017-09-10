@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_sstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/10 12:04:13 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/09/10 12:04:16 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:04:39 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:04:42 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include "minishell.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_sstrlen(char **s)
 {
-	int		count;
+	int i;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
-
-void	ft_putstr(const char *s)
-{
-	write(1, s, ft_strlen(s));
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

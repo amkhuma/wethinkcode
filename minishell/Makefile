@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/08/14 15:16:11 by amkhuma           #+#    #+#              #
-#    Updated: 2017/09/07 09:53:58 by amkhuma          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME      = minishell
 
@@ -39,8 +28,14 @@ SRC =	minishell.c			\
 		ft_strsub.c			\
 		ft_putstr.c			\
 		ft_strncmp.c		\
+		ft_strchr.c 		\
 		sh_clear.c			\
 		sh_env.c			\
+		ft_strstr.c 		\
+		ft_sstrnew.c 		\
+		ft_sstrlen.c 		\
+		ft_split.c 			\
+		sh_increase_array.c \
 		sh_setenv.c
 
 OBJ  = $(addprefix $(PATH_SRC), $(SRC:.c=.o))

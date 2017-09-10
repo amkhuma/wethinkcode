@@ -5,49 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 11:40:03 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/09/05 12:51:18 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:14:08 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:14:11 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		sh_findpoint(char *str, char c)
+int		sh_setenv(char *arg, t_data *p)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	if (str[i] == c)
-		return (i);
-	return (-1);
-}
-
-void	sh_setenv(char *arg, char **env)
-{
-	int		i;
-
-	i = 0;
 	if (arg == NULL)
-	{
-		ft_putstr("expected variable to set.\n");
-	}
+		ft_putstr("setenv: expected argument to set.\n");
 	else
-	{
-		while (env[i])
-		{
-			if (ft_strncmp(arg, env[i], sh_findpoint(arg, '=')) == 0)
-			{
-				env[i] = sh_realloc(arg);
-				return ;
-			}
-			i++;
-		}
-		while (env[i] != NULL)
-			i++;
-		env[i] = sh_realloc(arg);
-	}
-	i++;
-	env[i] = NULL;
+		sh_increase_array(arg, p);
+	return (1);
 }

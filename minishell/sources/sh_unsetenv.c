@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 11:37:41 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/09/05 12:51:56 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:14:16 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:14:18 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		ft_unsetenv(char **env, char *str)
+int		ft_unsetenv(char **env, char *str)
 {
 	int	i;
 	int	nbr;
 
 	i = 0;
 	nbr = 0;
+	if (str == NULL)
+	{
+		ft_putstr("unsetenv: expected argument to unset.\n");
+		return (1);
+	}
 	while (env[nbr])
 		nbr++;
 	while (env[i])
@@ -35,4 +40,5 @@ void		ft_unsetenv(char **env, char *str)
 		}
 		i++;
 	}
+	return (1);
 }

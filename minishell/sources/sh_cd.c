@@ -5,24 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 11:37:49 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/30 14:24:59 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:10:27 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:10:40 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int		sh_cd(char **args)
+int		sh_cd(char **argv, char **env)
 {
-	if (args[1] == NULL || ft_strcmp("~", args[1]) == 0)
+	if (argv[1] == NULL || ft_strcmp("~", argv[1]) == 0)
 	{
-		if (chdir(HOME) != 0)
+		if (chdir(get_env_var("HOME=", env)) != 0)
 			ft_putstr("an error occured\n");
 	}
 	else
 	{
-		if (chdir(args[1]) != 0)
-			ft_putstr("an error occured\n");
+		if (chdir(argv[1]) != 0)
+		{
+			ft_putstr("cd: no such file or directory: ");
+			ft_putstr(argv[1]);
+			ft_putstr("\n");
+		}
 	}
 	return (1);
 }

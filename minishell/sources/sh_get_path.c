@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_path.c                                         :+:      :+:    :+:   */
+/*   sh_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 10:27:51 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/30 14:31:06 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:12:30 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:12:33 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 static	char		**split_path(char *path)
 {
 	char	**arr;
+	char	**tmp;
 
-	arr = ft_strsplit(&path[5], ':');
+	tmp = ft_strsplit(path, '=');
+	arr = ft_strsplit(tmp[1], ':');
 	free(path);
+	ft_delarray(tmp);
 	return (arr);
 }
 
@@ -60,17 +63,18 @@ char				*sh_path(char **p, char **n)
 	p_t = sh_locate_path(p);
 	dir = split_path(p_t);
 	i = 0;
+	d = ft_strjoin("/", *n);
 	if (dir == NULL)
 		return (NULL);
-	while (dir[i++] != 0)
+	while (dir[i] != NULL)
 	{
-		d = ft_strjoin(dir[i], "/");
-		tmp = ft_strjoin(d, *n);
-		free(d);
-		d = tmp;
-		if (access(d, F_OK) == 0)
-			return (d);
+		tmp = ft_strjoin(dir[i], d);
+		if (access(tmp, X_OK) != -1)
+			return (tmp);
+		ft_strdel(&tmp);
+		i++;
 	}
-	sh_cleaner(dir, *n, tmp);
+	ft_delarray(dir);
+	free(d);
 	return (NULL);
 }

@@ -5,28 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 11:43:45 by amkhuma           #+#    #+#             */
-/*   Updated: 2017/08/22 08:29:43 by amkhuma          ###   ########.fr       */
+/*   Created: 2017/09/10 12:10:04 by amkhuma           #+#    #+#             */
+/*   Updated: 2017/09/10 12:10:09 by amkhuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-char			*ft_strchr(const char *s, int c)
-{
-	int		i;
-
-	i = 0;
-	while (s[i] && s)
-	{
-		if ((char)s[i] == (char)c)
-			return ((char *)s + i);
-		i++;
-	}
-	if ((char)c == s[i])
-		return ((char *)s + i);
-	return (NULL);
-}
 
 static int		ft_read_buffer(int const fd, char **line)
 {
