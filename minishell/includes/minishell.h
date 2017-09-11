@@ -15,6 +15,7 @@
 
 # define BUFF_SIZE 	1000
 
+# include "../libft/libft.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <sys/uio.h>
@@ -46,20 +47,7 @@ void				sh_cleaner(char **dir, char *n, char *tmp);
 char				*sh_path(char **p, char **n);
 char				*get_env_var(char *variable, char **env);
 
-char				**ft_strsplit(char const *s, char c);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
 int					get_next_line(int const fd, char **line);
-char				*ft_strdup(const char *s1);
-void				ft_putstr(const char *s);
-size_t				ft_strlen(const char *s);
-void				ft_putchar(char c);
-void				ft_strdel(char **as);
-char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strchr(const char *s, int c);
-char				*ft_strcpy(char *dest, const char *src);
-int					ft_strcmp(const char *s1, const char *s2);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strstr(const char *big, const char *little);
 void				sh_increase_array(char *str, t_data *p);
 void				ft_delarray(char **array);
 char				**ft_arraydup(char **env);
