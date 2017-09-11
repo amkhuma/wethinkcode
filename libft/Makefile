@@ -6,7 +6,7 @@
 #    By: amkhuma <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/18 12:54:14 by amkhuma           #+#    #+#              #
-#    Updated: 2017/06/19 12:00:47 by amkhuma          ###   ########.fr        #
+#    Updated: 2017/09/11 13:32:03 by amkhuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,9 @@ SRC = ft_memset.c			   \
 	  ft_toupper.c			   \
 	  ft_tolower.c			   \
 	  ft_putchar.c			   \
+	  ft_sstrlen.c			   \
+	  ft_sstrnew.c			   \
+	  ft_split.c    		   \
 	  ft_putchar_fd.c		   \
 	  ft_putstr.c			   \
 	  ft_putstr_fd.c		   \
